@@ -50,7 +50,7 @@ body {
   border-bottom: 1px solid rgb(232, 231, 231);
 }
 
-#iconBar {
+#searchBarDiv {
   margin: 0 auto;
   position: relative;
   top: -105px;
@@ -69,15 +69,13 @@ body {
 
 #top {
   grid-area: top;
-  width: 700px;
   display: grid;
   grid-template-areas: "map photos";
-  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
+  grid-template-columns: 33% 66%;
 }
 
 #map {
   grid-area: map;
-  margin-left: 44px;
 }
 
 #app {
