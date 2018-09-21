@@ -26,6 +26,36 @@ app.get('/api/header/:id', (req, res) => {
     .then(json => res.status(200).send(JSON.stringify(json)));
 });
 
+app.get('/api/photos/:id', (req, res) => {
+  const id = req.params.id;
+  fetch(`http://localhost:3002/businesses/${id}`)
+    .then((res) => {
+      return res.json();
+    })
+    .then(json => {
+      console.log(json);
+      res.status(200).send(json)
+    });
+});
+
+app.get('/api/reviews/restaurants/:id', (req, res) => {
+  const id = req.params.id;
+  fetch(`http://localhost:3003/restaurants/${id}`)
+    .then((res) => {
+      return res.json();
+    })
+    .then(json => res.status(200).send(JSON.stringify(json)));
+});
+
+app.get('/api/reviews/reviewers/', (req, res) => {
+  const id = req.params.id;
+  fetch(`http://localhost:3003/reviewers`)
+    .then((res) => {
+      return res.json();
+    })
+    .then(json => res.status(200).send(JSON.stringify(json)));
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
